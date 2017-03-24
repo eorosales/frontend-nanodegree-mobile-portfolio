@@ -494,8 +494,8 @@ function updatePositions() {
   var scrollFromTop = document.body.scrollTop;
 
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((scrollFromTop / 1250) + (i % 5)); // forced synchronous layout: READ
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px'; // style change is fudging it up: WRITE
+    var phase = Math.sin((scrollFromTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.

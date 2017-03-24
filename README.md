@@ -32,7 +32,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
@@ -53,3 +53,22 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+### Optimizations Made
+
+#### Part 1: Pagespeed Optimization (Mobile 95/ Desktop 96)
+
+- Deleted Google Font request
+- Added query attribute *media = "print"* in *print.css* stylesheet link tag
+- Scripts are moved to the bottom of *index.html*
+- Scripts tags are given an *async* attribute
+- Images optimized to only necessary sizes
+- *index.html* is minified
+
+### Part 2: 60 FPS Optimization in "pizza.html"
+
+- Implementations of *querySelectorAll* are changed to *getElementsByClassName*
+- In the function *updatePositions*, *document.body.scrollTop* is removed from the for-loop and is attached to a variable, *scrollFromTop*
+- Made use of *requestAnimationFrame* inside of function *updatePositions* (line:509)
+- Removed *window.addEventListener('scroll', updatePositions);* 
+- Decreased number of pizza elements generated on page load from 200 to 32 (line:516)
